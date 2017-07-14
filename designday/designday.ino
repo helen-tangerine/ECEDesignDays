@@ -71,14 +71,15 @@ void loop() {
   current = analogRead(currentSensor);
   // put your main code here, to run repeatedly:
   if (Genotronex.available() > 0){
-    serialInput = Genotronex.readStringUntil(' ');
-    if (serialInput == "start") {
+//    serialInput = Genotronex.readStringUntil(' ');
+//    if (serialInput == "start") {
       speedInput = Genotronex.parseInt();
+      Serial.println(speedInput);
       setMotors(speedInput);
       Genotronex.print("starting motor with speed ");
       Genotronex.println(speedInput);
       desiredRPM = -1;
-    }
+//    }M
     
     if (serialInput == "stop") {
       setMotors(0);
